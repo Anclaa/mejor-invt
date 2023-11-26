@@ -90,6 +90,7 @@ void eliminarproducto(){
 int main() {
     int opcion;
 
+  
     do {
         printf("----------------Electrónica Alambrito-----------");
         printf("\nMenu de accion:\n");
