@@ -72,12 +72,7 @@ void eliminarproducto(){
         printf("Cantidad eliminada con exito\n");
 
         if(cantidad[num_produ-1]==0){
-          for(int i = num_produ-1;i<cant_p-1;i++){
-            strcpy(nombres[i],nombres[i+1]);
-            precios[i]=precios[i+1];
-            cantidad[i]=cantidad[i+1];
-        }
-      cant_p--;
+            cant_p--;
         }
   } else {
       printf("cantidad a eliminar inválido\n");
