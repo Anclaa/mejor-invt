@@ -33,14 +33,16 @@ void agregarProducto() {
 
 // Función para mostrar todos los productos del inventario
 void mostrarInventario() {
-    printf("\nInventario de productos:\n");
+    printf("\nInventario de productos disponibles:\n");
 
     for (int i = 0; i < cant_p; i++) {
+      if(cantidad[i]>0){	
         printf("Producto %d:\n", i + 1);
         printf("Nombre: %s\n", nombres[i]);
         printf("Precio: $%.2f\n", precios[i]);
         printf("Cantidad: %d\n", cantidad[i]);
         printf("\n");
+      }
     }
     printf("Productos eliminados:\n");
     for (int i = 0; i < cant_p; i++) {
@@ -68,11 +70,13 @@ void eliminarproducto(){
       scanf("%d", &cant_el);
       if(cant_el>0 && cant_el<=cantidad[num_produ-1]){
         cantidad[num_produ-1]-=cant_el;
+        
         produ_ele[num_produ-1]+=cant_el;
         printf("Cantidad eliminada con exito\n");
 
         if(cantidad[num_produ-1]==0){
-            cant_p--;
+          
+      cant_p--;
         }
   } else {
       printf("cantidad a eliminar inválido\n");
