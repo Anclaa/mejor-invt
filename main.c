@@ -33,6 +33,7 @@ void agregarProducto() {
 
 // Función para mostrar todos los productos del inventario
 void mostrarInventario() {
+    float vent_t=0,venta=0;
     printf("\nInventario de productos disponibles:\n");
 
     for (int i = 0; i < cant_p; i++) {
@@ -47,12 +48,16 @@ void mostrarInventario() {
     printf("Inventario de productos no disponibles:\n");
     for (int i = 0; i < cant_p; i++) {
         if (produ_ele[i] > 0 || cantidad[i]==0) {
-            printf("Producto %d:\n", i + 1);
+            printf("\nProducto %d:\n", i + 1);
             printf("Nombre: %s\n", nombres[i]);
             printf("Cantidad eliminada: %d\n", produ_ele[i]);
+            venta=produ_ele[i]*precios[i];
+            printf("El producto %d dio una venta de %.2f\n",i+1,venta);
             printf("\n");
+            vent_t+=venta;
         }
     }
+  printf("La venta total generada es de %.2f\n",vent_t);
 }
 
 void eliminarproducto(){
@@ -84,8 +89,6 @@ void eliminarproducto(){
 
 int main() {
     int opcion;
-
-  
     do {
         printf("----------------Electrónica Alambrito-----------");
         printf("\nMenu de accion:\n");
