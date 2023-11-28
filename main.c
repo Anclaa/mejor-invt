@@ -87,6 +87,23 @@ void eliminarproducto(){
   }
 }
 
+void buscarProducto() {
+  char a[10];
+  printf("Que producto gusta buscar: ");
+  scanf("%s", &a);
+  for (int i = 0; i < 10; i++) {
+      if(strcmp(nombres[i],a)==0){
+      printf("Producto %d:\n", i + 1);
+      printf("Nombre: %s\n", nombres[i]);
+      printf("Precio: %.2f\n", precios[i]);
+      printf("Cantidad: %d\n", cantidad[i]);
+
+      printf("\n");
+      break;
+      }
+  }
+}
+
 int main() {
     int opcion;
     do {
@@ -95,7 +112,8 @@ int main() {
         printf("1. Agregar producto\n");
         printf("2. Mostrar inventario\n");
         printf("3. Sacar producto: \n");
-        printf("4. Salir\n");
+        printf("4. Buscar producto: \n");
+        printf("5. Salir\n");
         printf("Seleccione una opción: ");
         scanf("%d", &opcion);
 
@@ -110,13 +128,16 @@ int main() {
                 eliminarproducto();
                 break;
             case 4:
+              buscarProducto();
+              break;
+            case 5:
                 printf("Saliendo del programa...\n");
                 break;
             default:
                 printf("Opción inválida\n");
                 break;
         }
-    } while (opcion != 4);
+    } while (opcion != 5);
 
     return 0;
 }
