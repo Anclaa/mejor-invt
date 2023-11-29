@@ -25,6 +25,7 @@ void agregarProducto() {
 
     printf("Ingrese la cantidad del producto: ");
     scanf( "%d", &cantidad[cant_p]);
+  
 
     cant_p++;
 
@@ -89,18 +90,21 @@ void eliminarproducto(){
 
 void buscarProducto() {
   char a[10];
+  int find=0;
   printf("Que producto gusta buscar: ");
   scanf("%s", &a);
   for (int i = 0; i < 10; i++) {
       if(strcmp(nombres[i],a)==0){
       printf("Producto %d:\n", i + 1);
-      printf("Nombre: %s\n", nombres[i]);
       printf("Precio: %.2f\n", precios[i]);
       printf("Cantidad: %d\n", cantidad[i]);
-
+      find=1;
       printf("\n");
       break;
       }
+  }
+  if(find==0){
+    printf("\nNo hay producto %s\n",a);
   }
 }
 
